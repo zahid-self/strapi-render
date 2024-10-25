@@ -369,6 +369,41 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiScrapingAttempScrapingAttemp
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'scraping_attemps';
+  info: {
+    displayName: 'Scraping Attemp';
+    pluralName: 'scraping-attemps';
+    singularName: 'scraping-attemp';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apiCost: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    errorMessage: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::scraping-attemp.scraping-attemp'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    result: Schema.Attribute.Text;
+    serviceName: Schema.Attribute.String & Schema.Attribute.Required;
+    statusCode: Schema.Attribute.Integer;
+    success: Schema.Attribute.Boolean;
+    targetUrl: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServiceDetailServiceDetail
   extends Struct.CollectionTypeSchema {
   collectionName: 'service_details';
@@ -993,6 +1028,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::scraping-attemp.scraping-attemp': ApiScrapingAttempScrapingAttemp;
       'api::service-detail.service-detail': ApiServiceDetailServiceDetail;
       'api::service.service': ApiServiceService;
       'api::website-detail.website-detail': ApiWebsiteDetailWebsiteDetail;
