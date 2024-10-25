@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "website_details",
+  "info": {
+    "singularName": "website-detail",
+    "pluralName": "website-details",
+    "displayName": "Website Detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
