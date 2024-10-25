@@ -373,7 +373,8 @@ export interface ApiScrapingAttempScrapingAttemp
   extends Struct.CollectionTypeSchema {
   collectionName: 'scraping_attemps';
   info: {
-    displayName: 'Scraping Attemp';
+    description: '';
+    displayName: 'Scraping Attempt';
     pluralName: 'scraping-attemps';
     singularName: 'scraping-attemp';
   };

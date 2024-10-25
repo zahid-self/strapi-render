@@ -4,7 +4,8 @@
   "info": {
     "singularName": "scraping-attemp",
     "pluralName": "scraping-attemps",
-    "displayName": "Scraping Attemp"
+    "displayName": "Scraping Attempt",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
