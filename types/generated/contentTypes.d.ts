@@ -496,6 +496,7 @@ export interface ApiWebsiteDetailWebsiteDetail
 export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
   collectionName: 'websites';
   info: {
+    description: '';
     displayName: 'Website';
     pluralName: 'websites';
     singularName: 'website';
@@ -522,6 +523,7 @@ export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
