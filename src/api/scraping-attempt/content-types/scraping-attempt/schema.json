@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scraping_attempts",
+  "info": {
+    "singularName": "scraping-attempt",
+    "pluralName": "scraping-attempts",
+    "displayName": "Scraping Attempt"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "targetUrl": {
+      "type": "text"
+    },
+    "serviceName": {
+      "type": "string",
+      "required": true
+    },
+    "errorMessage": {
+      "type": "text"
+    },
+    "statusCode": {
+      "type": "integer",
+      "required": true
+    },
+    "serviceId": {
+      "type": "string",
+      "required": true
+    },
+    "result": {
+      "type": "text",
+      "required": true
+    },
+    "apiCost": {
+      "type": "string",
+      "required": true
+    },
+    "success": {
+      "type": "boolean",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

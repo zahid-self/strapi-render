@@ -369,36 +369,37 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiScrapingAttempScrapingAttemp
+export interface ApiScrapingAttemptScrapingAttempt
   extends Struct.CollectionTypeSchema {
-  collectionName: 'scraping_attemps';
+  collectionName: 'scraping_attempts';
   info: {
-    description: '';
     displayName: 'Scraping Attempt';
-    pluralName: 'scraping-attemps';
-    singularName: 'scraping-attemp';
+    pluralName: 'scraping-attempts';
+    singularName: 'scraping-attempt';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    apiCost: Schema.Attribute.String;
+    apiCost: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    errorMessage: Schema.Attribute.String;
+    duration: Schema.Attribute.String & Schema.Attribute.Required;
+    errorMessage: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::scraping-attemp.scraping-attemp'
+      'api::scraping-attempt.scraping-attempt'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    result: Schema.Attribute.Text;
+    result: Schema.Attribute.Text & Schema.Attribute.Required;
+    serviceId: Schema.Attribute.String & Schema.Attribute.Required;
     serviceName: Schema.Attribute.String & Schema.Attribute.Required;
-    statusCode: Schema.Attribute.Integer;
-    success: Schema.Attribute.Boolean;
-    targetUrl: Schema.Attribute.String;
+    statusCode: Schema.Attribute.Integer & Schema.Attribute.Required;
+    success: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    targetUrl: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1029,7 +1030,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::scraping-attemp.scraping-attemp': ApiScrapingAttempScrapingAttemp;
+      'api::scraping-attempt.scraping-attempt': ApiScrapingAttemptScrapingAttempt;
       'api::service-detail.service-detail': ApiServiceDetailServiceDetail;
       'api::service.service': ApiServiceService;
       'api::website-detail.website-detail': ApiWebsiteDetailWebsiteDetail;
